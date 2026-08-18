@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>免责确认</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px 40px 40px 40px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+        .card h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+        .card .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 32px;
+        }
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 36px;
+            padding: 14px 0;
+            border-radius: 12px;
+            background: #f8f9fc;
+            cursor: pointer;
+            user-select: none;
+        }
+        .checkbox-wrapper:hover {
+            background: #f0f2f7;
+        }
+        .checkbox-wrapper input[type="checkbox"] {
+            display: none;
+        }
+        .custom-checkbox {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 2.5px solid #c0c4d0;
+            border-radius: 6px;
+            background: #ffffff;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            margin-right: 14px;
+            position: relative;
+        }
+        .custom-checkbox::after {
+            content: "✓";
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s ease;
+        }
+        .checkbox-wrapper input[type="checkbox"]:checked+.custom-checkbox {
+            background: #2ecc71;
+            border-color: #2ecc71;
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.35);
+        }
+        .checkbox-wrapper input[type="checkbox"]:checked+.custom-checkbox::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .text {
+            font-size: 17px;
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+        #confirmBtn {
+            width: 100%;
+            padding: 16px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: #d1d5e0;
+            color: #ffffff;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        #confirmBtn.active {
+            background: #2ecc71;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+        }
+        #confirmBtn.active:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📋 免责声明</h1>
+        <p class="subtitle">请仔细阅读并确认以下条款</p>
+        <label class="checkbox-wrapper" id="checkboxLabel">
+            <input type="checkbox" id="agreeCheckbox" />
+            <span class="custom-checkbox"></span>
+            <span class="text">我不会追究作者的法律责任</span>
+        </label>
+        <button id="confirmBtn" disabled>确认</button>
+        <p class="footer-note">勾选上方方框后，按钮将变为可用</p>
+    </div>
+    <script>
+        (function() {
+            const checkbox = document.getElementById('agreeCheckbox');
+            const confirmBtn = document.getElementById('confirmBtn');
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    confirmBtn.disabled = false;
+                    confirmBtn.classList.add('active');
+                    confirmBtn.textContent = '✅ 确认';
+                } else {
+                    confirmBtn.disabled = true;
+                    confirmBtn.classList.remove('active');
+                    confirmBtn.textContent = '确认';
+                }
+            });
+
+            confirmBtn.addEventListener('click', function() {
+                if (!checkbox.checked) {
+                    return;
+                }
+                window.location.href = 'page2.html';
+            });
+        })();
+    </script>
+</body>
+</html>
