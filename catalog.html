@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>目录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 40px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: #eef0f5;
+            color: #1a1a2e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .btn-original {
+            background: #d4e2f0;
+            color: #1a3a5e;
+        }
+        .btn-original:hover {
+            background: #b8cfec;
+        }
+        .btn-rock {
+            background: #f0d4d4;
+            color: #6e2e2e;
+        }
+        .btn-rock:hover {
+            background: #e8b8b8;
+        }
+        .btn-oil {
+            background: #d4e8d4;
+            color: #2e5e2e;
+        }
+        .btn-oil:hover {
+            background: #b8dcb8;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="button-group">
+            <a href="pic1.html" class="btn btn-original">📷 原照片</a>
+            <a href="pic2.html" class="btn btn-rock">🎸 摇滚风格</a>
+            <a href="pic3.html" class="btn btn-oil">🖼️ 油画风格</a>
+        </div>
+    </div>
+</body>
+</html>
