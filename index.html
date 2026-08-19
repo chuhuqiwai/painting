@@ -160,17 +160,17 @@
         <h1>📋 免责声明</h1>
         <p class="subtitle">请仔细阅读并确认以下条款</p>
 
-        <!-- 新增：姓名输入栏 -->
+        <!-- 姓名输入栏 -->
         <div class="name-row">
             <label for="nameInput">您的姓名</label>
             <input type="text" id="nameInput" placeholder="请输入姓名" />
         </div>
 
-        <!-- 复选框（原内容） -->
+        <!-- 复选框，文字已修改 -->
         <label class="checkbox-wrapper" id="checkboxLabel">
             <input type="checkbox" id="agreeCheckbox" />
             <span class="custom-checkbox"></span>
-            <span class="text">我承诺看完以后不会破防🤡</span>
+            <span class="text">本人无心脏病、高血压等既往病史，自愿承担观后一切后果，绝不追究作者任何法律及道德责任。</span>
         </label>
 
         <button id="confirmBtn" disabled>确认</button>
@@ -204,7 +204,6 @@
 
             // 点击确认按钮
             confirmBtn.addEventListener('click', function() {
-                // 即使按钮被禁用，也不会触发此事件，但为了安全再检查一次
                 if (confirmBtn.disabled) return;
 
                 const name = nameInput.value.trim();
@@ -213,11 +212,10 @@
                     window.location.href = 'catalog.html';
                 } else {
                     alert('❌ 验证失败');
-                    // 不跳转，无其他效果
                 }
             });
 
-            // 初始状态检查（确保页面加载时按钮为禁用）
+            // 初始状态检查
             updateButtonState();
         })();
     </script>
